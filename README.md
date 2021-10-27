@@ -1,8 +1,8 @@
-# BeautyBooking
+# EncantosSalao
 
-A beauty bookings web application for hair, nails, spa and etc. appointments.  :calendar: :nail_care:
+Uma aplicação Web para agendamento de corte de cabelo, unhas, e etc. :calendar: :nail_care:
 
-:dart:  My project for the ASP.NET Core course at SoftUni. (April 2020) 
+:dart:  Projeto Integrador feito com ASP.NET Core para a Univesp. (Outubro 2021) 
 
 ## :information_source: How It Works
 

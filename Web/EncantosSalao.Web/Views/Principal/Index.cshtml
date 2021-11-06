@@ -1,0 +1,129 @@
+﻿@model EncantosSalao.Web.ViewModels.Home.IndexViewModel
+@{
+    this.ViewData["Title"] = "Pagina Principal";
+}
+
+<hr class="bg-dark mx-4" style="height: 6px;" />
+
+<div class="departments">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="section_title">Serviços</div>
+                <div class="section_subtitle">Para sua escolha</div>
+            </div>
+        </div>
+        <div class="row dept_row">
+            <div class="col">
+                <div class="dept_slider_container_outer">
+                    <div class="dept_slider_container">
+
+                        <!-- Slider -->
+                        <div class="owl-carousel owl-theme dept_slider">
+
+                            @foreach (var category in Model.Categories)
+                            {
+                                <!-- Slide -->
+                                <div class="owl-item dept_item">
+                                    <div class="dept_image"><img src="@category.ImageUrl" alt=""></div>
+                                    <div class="dept_content">
+                                        <div class="dept_title">@category.Name</div>
+                                        <div class="dept_link"><a>@category.Description</a></div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    <!-- Dept Slider Nav -->
+                    <div class="dept_slider_nav"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="button services_button ml-auto mr-auto">
+                    <a asp-area="" asp-controller="Categories" asp-action="Index"><span>veja todos</span><span>veja todos</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="bg-dark mx-4" style="height: 6px;" />
+
+<!-- FAQ & News -->
+
+<div class="stuff">
+    <div class="container">
+        <div class="row">
+
+            <!-- FAQ -->
+            <div class="col-lg-7">
+                <div class="faq">
+                    <div class="faq_title">Perguntas frequentes</div>
+                    <div class="elements_accordions">
+                        <div class="accordions">
+
+                            <div class="accordion_container">
+                                <div class="accordion d-flex flex-row align-items-center active"><div>O que é o Salão Encantos?</div></div>
+                                <div class="accordion_panel">
+                                    <div>
+                                        <p>
+                                            O Salão Encantos é um lugar onde você poderá consumir serviços como 
+                                            corte de cabelo, cera, manicure - ou qualquer trataemtno que você desejar depois -
+                                            aqui você pode agendar nossos serviços.
+
+                                            Nossa missão é proporcionar um corte perfeito e lindo que possa atingir suas expectativas.
+                                            Nós queremos que seus agendamentos sejam rápidos, fáceis e simples de realizar.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion_container">
+                                <div class="accordion d-flex flex-row align-items-center"><div>Como usar o sistema de agendamentos?</div></div>
+                                <div class="accordion_panel">
+                                    <div>
+                                        <p>
+                                            Você somente precisa se registrar e entrar na sua conta.
+                                            Então você poderá realizar o agendaemnto em 2 simples passos:
+                                            escolha um serviço, escolha uma data e horário para o agendamento.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion_container">
+                                <div class="accordion d-flex flex-row align-items-center"><div>Como verificar seus agendamentos?</div></div>
+                                <div class="accordion_panel">
+                                    <div>
+                                        <p>
+                                            Após entrar com sua conta, na página principal clique no linke AGENDAMENTOS no topo da página.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest News -->
+            <div class="col-lg-5">
+                <div class="news-grey">
+                    <div class="news_title">Últimas postagens</div>
+                    <div class="news_container">
+                        <div>
+                            @await Component.InvokeAsync("LatestBlogPosts", 4)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<hr class="bg-dark mx-4" style="height: 6px;" />

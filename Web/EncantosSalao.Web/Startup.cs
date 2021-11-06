@@ -2,6 +2,7 @@
 {
     using System.Reflection;
 
+    using CloudinaryDotNet;
     using EncantosSalao.Common;
     using EncantosSalao.Data;
     using EncantosSalao.Data.Common;
@@ -10,7 +11,6 @@
     using EncantosSalao.Data.Repositories;
     using EncantosSalao.Data.Seeding;
     using EncantosSalao.Services.Cloudinary;
-    using EncantosSalao.Services.Data;
     using EncantosSalao.Services.Data.Appointments;
     using EncantosSalao.Services.Data.BlogPosts;
     using EncantosSalao.Services.Data.Categories;
@@ -22,7 +22,6 @@
     using EncantosSalao.Services.Mapping;
     using EncantosSalao.Services.Messaging;
     using EncantosSalao.Web.ViewModels;
-    using CloudinaryDotNet;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -65,13 +64,6 @@
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
-
-            // // External Login Setups
-            // services.AddAuthentication().AddFacebook(facebookOptions =>
-            // {
-            //     facebookOptions.AppId = this.configuration["Authentication:Facebook:AppId"];
-            //     facebookOptions.AppSecret = this.configuration["Authentication:Facebook:AppSecret"];
-            // });
 
             // Cloudinary Setup
             Cloudinary cloudinary = new Cloudinary(new Account(
@@ -136,8 +128,8 @@
             app.UseEndpoints(
                 endpoints =>
                     {
-                        endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-                        endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                        endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Principal}/{action=Index}/{id?}");
+                        endpoints.MapControllerRoute("default", "{controller=Principal}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();
                     });
         }

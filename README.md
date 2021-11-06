@@ -53,15 +53,15 @@ Você pode testar o website usuando as contas pré configuradas abaixo:
   - Administrador: admin@admin.com / senha: 123456
  
 
-## :framed_picture: Screenshot - Home Page
+## :framed_picture: Captura de tela - Pagina Principal
 
 ![BeautyBooking-HomePage](https://res.cloudinary.com/beauty-booking/image/upload/v1588865868/SCREENSHOTS/1-home_orn9ng.png)
 
-## :framed_picture: Screenshot - Make An Appointment Page
+## :framed_picture: Captura de tela - Página Faça um Agendamento 
 
 ![BeautyBooking-MakeAnAppointment](https://res.cloudinary.com/beauty-booking/image/upload/v1588865868/SCREENSHOTS/4-make-an-appointment_zclidt.png)
 
-## License
+## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
 

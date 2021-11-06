@@ -1,4 +1,4 @@
-﻿@model EncantosSalao.Web.ViewModels.Home.IndexViewModel
+﻿@model EncantosSalao.Web.ViewModels.Principal.IndexViewModel
 @{
     this.ViewData["Title"] = "Pagina Principal";
 }
@@ -52,13 +52,13 @@
 
 <hr class="bg-dark mx-4" style="height: 6px;" />
 
-<!-- FAQ & News -->
+<!-- Perguntas frequentes e noticias -->
 
 <div class="stuff">
     <div class="container">
         <div class="row">
 
-            <!-- FAQ -->
+            <!-- Perguntas Frequentes -->
             <div class="col-lg-7">
                 <div class="faq">
                     <div class="faq_title">Perguntas frequentes</div>
@@ -110,10 +110,10 @@
                 </div>
             </div>
 
-            <!-- Latest News -->
+            <!-- Ultimas Noticias -->
             <div class="col-lg-5">
                 <div class="news-grey">
-                    <div class="news_title">Últimas postagens</div>
+                    <div class="news_title">Últimas Notícias</div>
                     <div class="news_container">
                         <div>
                             @await Component.InvokeAsync("LatestBlogPosts", 4)

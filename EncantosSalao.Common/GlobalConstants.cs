@@ -2,13 +2,13 @@
 {
     public static class GlobalConstants
     {
-        public const string SystemName = "BeautyBooking";
+        public const string SystemName = "EncantosSalao";
 
-        public const string AdministratorRoleName = "Administrator";
+        public const string AdministratorRoleName = "Administrador";
 
-        public const string SalonManagerRoleName = "Manager";
+        public const string SalonManagerRoleName = "Gerente";
 
-        public const string CloudName = "beauty-booking";
+        public const string CloudName = "encantos-salao";
 
         public static class AccountsSeeding
         {
@@ -46,23 +46,23 @@
 
         public static class ErrorMessages
         {
-            public const string Title = "Title must be between 5 and 60 characters.";
+            public const string Title = "Titulo deve estar entre 5 e 60 caracteres.";
 
-            public const string Content = "Content must be between 700 and 3500 characters.";
+            public const string Content = "Conteudo deve estar entre 700 e 3500 caracteres.";
 
-            public const string Author = "Author name must be between 2 and 40 characters.";
+            public const string Author = "Nome do autor deve estar entre 2 e 40 caracteres.";
 
-            public const string Name = "Name must be between 2 and 40 characters.";
+            public const string Name = "Nome deve  estar entre 2 e 40 caracteres.";
 
-            public const string Description = "Description must be between 50 and 700 characters.";
+            public const string Description = "Descrição deve estar entre 50 e 700 caracteres.";
 
-            public const string Address = "Address must be between 5 and 100 characters.";
+            public const string Address = "Endereço deve estar entre 5 e 100 caracteres.";
 
-            public const string Image = "Please select a JPG, JPEG or PNG image smaller than 1MB.";
+            public const string Image = "Por favor selecione uma imagem JPG, JPEG ou PNG  menor que 1MB.";
 
-            public const string DateTime = "Please select a valid DATE and TIME from the datepicker calendar on the left.";
+            public const string DateTime = "Por favor selecione uma data e hora validas a partir do calendário à esquerda.";
 
-            public const string Rating = "Please choose a valid number of stars from 1 to 5.";
+            public const string Rating = "Por favor escolha um número válido que inicia a partir de 1 até 5.";
         }
 
         public static class DateTimeFormats
@@ -76,7 +76,7 @@
 
         public static class Images
         {
-            public const string Index = "https://res.cloudinary.com/beauty-booking/image/upload/v1586874219/index_iyfzwc.jpg";
+            public const string Index = "~/Images/index_iyfzwc.jpg";
 
             public const string CoverBackground = "https://res.cloudinary.com/beauty-booking/image/upload/v1586874218/cover-bg_nnwh6d.jpg";
 

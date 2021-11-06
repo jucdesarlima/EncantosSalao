@@ -20,8 +20,8 @@
                 {
                     new Category // Id = 1
                     {
-                        Name = "Hair Salons",
-                        Description = "Hair salons come in a variety of shapes and sizes. Whether you prefer to splurge on regular hair appointments or like to chop and change to suit your location and your budget, one thing is for certain - we all need a good trim every so often and a hair salon is the place to do it.",
+                        Name = "Salões de Cabeleireiro",
+                        Description = "Salões de Cabeleireiro vêm em uma variedade de formas e tamanhos. Se você prefere fazer alarde em compromissos de cabelo regulares ou gosta de cortar e mudar de acordo com sua localização e seu orçamento, uma coisa é certa - todos nós precisamos de um bom corte de vez em quando e um salão de cabeleireiro é o lugar para fazê-lo.",
                         ImageUrl = GlobalConstants.Images.Hair,
                     },
                     new Category // Id = 2

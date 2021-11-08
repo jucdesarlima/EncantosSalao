@@ -2,26 +2,23 @@
 {
     using System.Reflection;
 
-    using CloudinaryDotNet;
-    using EncantosSalao.Common;
-    using EncantosSalao.Data;
-    using EncantosSalao.Data.Common;
-    using EncantosSalao.Data.Common.Repositories;
-    using EncantosSalao.Data.Models;
-    using EncantosSalao.Data.Repositories;
-    using EncantosSalao.Data.Seeding;
-    using EncantosSalao.Services.Cloudinary;
-    using EncantosSalao.Services.Data.Appointments;
-    using EncantosSalao.Services.Data.BlogPosts;
-    using EncantosSalao.Services.Data.Categories;
-    using EncantosSalao.Services.Data.Cities;
-    using EncantosSalao.Services.Data.Salons;
-    using EncantosSalao.Services.Data.SalonServicesServices;
-    using EncantosSalao.Services.Data.Services;
-    using EncantosSalao.Services.DateTimeParser;
-    using EncantosSalao.Services.Mapping;
-    using EncantosSalao.Services.Messaging;
-    using EncantosSalao.Web.ViewModels;
+    using EncantosSalao.Dado;
+    using EncantosSalao.Dado.Comum;
+    using EncantosSalao.Dado.Comum.Repositorios;
+    using EncantosSalao.Dado.Modelos;
+    using EncantosSalao.Dado.Repositorios;
+    using EncantosSalao.Dado.Semeando;
+    using EncantosSalao.Servicos.Dado.Agendamentos;
+    using EncantosSalao.Servicos.Dado.Categorias;
+    using EncantosSalao.Servicos.Dado.Cidades;
+    using EncantosSalao.Servicos.Dado.NoticiasBlog;
+    using EncantosSalao.Servicos.Dado.Saloes;
+    using EncantosSalao.Servicos.Dado.Servicos;
+    using EncantosSalao.Servicos.Dado.ServicosSalaoServico;
+    using EncantosSalao.Servicos.DateTimeParser;
+    using EncantosSalao.Servicos.Mapeamento;
+    using EncantosSalao.Servicos.Memsagens;
+    using EncantosSalao.Web.VisaoModelos;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -61,34 +58,27 @@
             services.AddSingleton(this.configuration);
 
             // Data repositories
-            services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
-            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
-            services.AddScoped<IDbQueryRunner, DbQueryRunner>();
+            services.AddScoped(typeof(IRepositorioEntidadeDeletavel<>), typeof(EfRepositorioEntidadeDeletavel<>));
+            services.AddScoped(typeof(IRepositorio<>), typeof(EfRepositorio<>));
+            services.AddScoped<IDbExecutorConsulta, DbExecutorConsulta>();
 
-            // Cloudinary Setup
-            Cloudinary cloudinary = new Cloudinary(new Account(
-                GlobalConstants.CloudName, // this.configuration["Cloudinary:CloudName"],
-                this.configuration["Cloudinary:ApiKey"],
-                this.configuration["Cloudinary:ApiSecret"]));
-            services.AddSingleton(cloudinary);
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<IBlogPostsService, BlogPostsService>();
-            services.AddTransient<ICategoriesService, CategoriesService>();
-            services.AddTransient<IServicesService, ServicesService>();
-            services.AddTransient<ICitiesService, CitiesService>();
-            services.AddTransient<ISalonsService, SalonsService>();
-            services.AddTransient<ISalonServicesService, SalonServicesService>();
-            services.AddTransient<IAppointmentsService, AppointmentsService>();
+            services.AddTransient<INoticiasBlogServico, NoticiasBlogServico>();
+            services.AddTransient<ICategoriasServico, CategoriasServico>();
+            services.AddTransient<IServicosServico, ServicosServico>();
+            services.AddTransient<ICidadesServico, CidadesServico>();
+            services.AddTransient<ISaloesServico, SaloesServico>();
+            services.AddTransient<ISalaoServicosServico, SalaoServicosServico>();
+            services.AddTransient<IAgendamentosServico, AgendamentosServico>();
             services.AddTransient<IDateTimeParserService, DateTimeParserService>();
-            services.AddTransient<ICloudinaryService, CloudinaryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
+            AutoMapperConfig.RegisterMappings(typeof(ErroVisaoModelo).GetTypeInfo().Assembly);
 
             // Seed data on application startup
             using (var serviceScope = app.ApplicationServices.CreateScope())
@@ -100,7 +90,7 @@
                     dbContext.Database.Migrate();
                 }
 
-                new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
+                new AplicacaoDbContextoSemeador().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
             }
 
             if (env.IsDevelopment())
@@ -118,6 +108,7 @@
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
             app.UseCookiePolicy();
 
             app.UseRouting();

@@ -1,0 +1,59 @@
+﻿@model EncantosSalao.Web.ViewModels.Salons.SalonsListViewModel
+@{
+    this.ViewData["Title"] = "Salons";
+}
+
+<h2>
+    All Salons (@Model.Salons.Count())
+    <span>
+        <a class="btn btn-info" asp-area="Administracao" asp-controller="Saloes" asp-action="AddSalon">Adiciona Novo Salão</a>
+    </span>
+</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Imagem</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Avaliação</th>
+            <th scope="col">Agendamentos</th>
+            <th scope="col">Botão Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var salon in this.Model.Salons)
+        {
+            <tr>
+                <th scope="row">@salon.Name</th>
+                <td>
+                    <img class="align-self-center" src="@salon.ImageUrl" style="width:180px;height:120px;">
+                </td>
+                <td>@salon.CategoryName</td>
+                <td>@salon.CityName</td>
+                <td>@salon.Address</td>
+                <td><strong>@salon.Rating.ToString("F") / 5.00</strong> a partir <strong>@salon.RatersCount</strong> votos</td>
+                <td>@salon.AppointmentsCount</td>
+                <td>
+                    @if (salon.Id.StartsWith("seeded"))
+                    {
+                        <div class="text-muted" style="font-size:smaller">
+                            Dado <br />não pode ser excluido
+                        </div>
+                    }
+                    else
+                    {
+                        <form method="post">
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    asp-area="Administracao" asp-controller="Saloes" asp-action="DeleteSalon" asp-route-id="@salon.Id">
+                                Exclui
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,48 +1,48 @@
-﻿@model EncantosSalao.Web.ViewModels.Appointments.AppointmentsListViewModel
+﻿@model EncantosSalao.Web.VisaoModelos.Agendamentos.AgendamentosListaVisaoModelo
 @{
     this.ViewData["Title"] = "Default";
 }
 
 @if (@Model.Appointments.Count() > 0)
 {
-    <h2>Past (@Model.Appointments.Count())</h2>
+    <h2>Past (@Model.Agendamentos.Count())</h2>
 
     <table class="table table-bordered table-striped">
         <thead class="thead-light">
             <tr>
-                <th scope="col">Date and Time</th>
-                <th scope="col">Salon</th>
-                <th scope="col">Address</th>
-                <th scope="col">Service</th>
-                <th scope="col">Rate Salon</th>
-                <th scope="col">Book Again</th>
+                <th scope="col">Data e Hora</th>
+                <th scope="col">Salão</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Avaliação Salão</th>
+                <th scope="col">Agende Novamente</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var appointment in this.Model.Appointments)
+            @foreach (var agendamento in this.Model.Agendamentos)
             {
                 <tr>
-                    <th scope="row">@appointment.DateTime</th>
-                    <td>@appointment.SalonName</td>
-                    <td>@appointment.SalonCityName, @appointment.SalonAddress</td>
-                    <td>@appointment.ServiceName</td>
+                    <th scope="row">@agendamento.DataHora</th>
+                    <td>@agendamento.NomeSalao</td>
+                    <td>@agendamento.NomeCidadeSalao, @agendamento.EnderecoSalao</td>
+                    <td>@agendamento.NomeServico</td>
                     <td>
-                        @if (appointment.IsSalonRatedByTheUser == true)
+                        @if (agendamento.EstaSalaoAvaliadoPeloUsuario == true)
                         {
                             <p>Already Rated!</p>
                         }
                         else
                         {
                             <a class="btn btn-outline-success btn-sm"
-                               asp-area="" asp-controller="Appointments" asp-action="RatePastAppointment" asp-route-id="@appointment.Id">
-                                Rate Salon
+                               asp-area="" asp-controller="Agendamentos" asp-action="AvalieUltimoAgendamento" asp-route-id="@agendamento.Id">
+                                Avalie o Salão
                             </a>
                         }
                     </td>
                     <td>
                         <div class="button elements_button">
-                            <a asp-area="" asp-controller="Appointments" asp-action="MakeAnAppointment" asp-route-salonId="@appointment.SalonId" asp-route-serviceId="@appointment.ServiceId">
-                                <span>book again</span><span>book again</span>
+                            <a asp-area="" asp-controller="Agendamentos" asp-action="FacaUmAgendamento" asp-route-salonId="@agendamento.IdSalao" asp-route-serviceId="@agendamento.IdServico">
+                                <span>agende novamente</span><span>agende novamente</span>
                             </a>
                         </div>
                     </td>

@@ -1,0 +1,60 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Saloes.SalaoComServicosVisaoModelo
+@{
+    this.ViewData["Title"] = "Salão: " + Model.Name;
+}
+
+<div class="row row-eq-height">
+    <!-- Info Box -->
+    <div class="col-lg-4 info_box_col">
+        <div class="info_box">
+            <div class="info_image"><img src="@Model.UrlImagem" alt=""></div>
+            <div class="info_content">
+                <div class="info_title">@Model.Nome</div>
+                <div class="info_text">Categoria: <strong>@Model.NomeCategoria</strong></div>
+                <div class="info_text">Cidade: <strong>@Model.NomeCidade</strong></div>
+                <div class="info_text">Endereço: <strong>@Model.Endereco</strong></div>
+                <div class="info_text">
+                    Rating: &nbsp;&nbsp;
+                    <span class="star-rating">
+                        <span class="fa fa-star-o" data-rating="1"></span>
+                        <span class="fa fa-star-o" data-rating="2"></span>
+                        <span class="fa fa-star-o" data-rating="3"></span>
+                        <span class="fa fa-star-o" data-rating="4"></span>
+                        <span class="fa fa-star-o" data-rating="5"></span>
+                        <input type="hidden" name="whatever1" class="rating-value" value="@Model.Avaliacao">
+                    </span>
+                    <span>&nbsp; ( @Model.Avaliacao.ToString("F") / 5.00 ) from @Model.ContadorAvaliadores votes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Panel -->
+    <div class="col-lg-7">
+        <h2>Services:</h2>
+        <div class="tab_panel active">
+            <div class="tab_panel_content">
+                <div class="tab_list">
+                    <ul>
+                        @foreach (var servico in Model.Servicos.Where(x => x.Disponivel == true))
+                        {
+                            <li>
+                                <div class="tab_list_title">@servico.NomeServico</div>
+                                <div class="tab_list_text"><p>@servico.DescricaoServico</p></div>
+                                <div class="button info_button">
+                                    <a asp-area="" asp-controller="Agendamentos" asp-action="FacaUmAgendamento" 
+                                       asp-route-salonId="@servico.IdSalao" asp-route-serviceId="@servico.IdServico">
+                                        <span>agende agora</span><span>agende agora</span>
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/rating-static.js" asp-append-version="true"></script>
+}

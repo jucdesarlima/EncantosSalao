@@ -1,0 +1,81 @@
+﻿@model EncantosSalao.Web.VisaoModelos.NoticiasBlog.NoticiasBlogListaVisaoModelo
+@using EncantosSalao.Comum
+@{
+    this.ViewData["Title"] = "Noticias Blog";
+}
+
+<h2>
+    Todoas as Noticias do Blog (@Model.NoticiasBlog.Count())
+    <span>
+        <a class="btn btn-info" asp-area="Administracao" asp-controller="NoticiasBlog" asp-action="AdicionaBlog">Adiciona Nova Noticia</a>
+    </span>
+</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Imagem</th>
+            <th scope="col">Conteudo</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Criado em</th>
+            <th scope="col">Botão Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var noticiasblog in this.Model.NoticiasBlog)
+        {
+            <tr>
+                <th scope="row">@noticiasblog.Titulo</th>
+                <td>
+                    <img class="align-self-center" src="@noticiasblog.UrlImagem" style="width:180px;height:120px;">
+                </td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#blogPost-@noticiasblog.Id">
+                        Veja o conteudo completo
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="blogPost-@noticiasblog.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">@noticiasblog.Titulo</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    @noticiasblog.Conteudo
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>@noticiasblog.Autor</td>
+                <td>@noticiasblog.CriadoEm</td>
+                <td>
+                    @if (noticiasblog.Id <= ConstantesGlobais.ContadoresDadosSemeados.NoticiaBlog)
+                    {
+                        <div class="text-muted" style="font-size:smaller">
+                            Dado <br />não poder ser excluido
+                        </div>
+                    }
+                    else
+                    {
+                        <form method="post">
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    asp-area="Administracao" asp-controller="NoticiasBlog" asp-action="ExcluiNoticiasBlog" asp-route-id="@noticiasblog.Id">
+                                Exclui
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

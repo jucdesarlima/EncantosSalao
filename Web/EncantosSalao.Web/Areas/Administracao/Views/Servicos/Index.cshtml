@@ -1,0 +1,54 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Servicos.ServicosListaVisaoModelo
+@using EncantosSalao.Comum
+@{
+    this.ViewData["Title"] = "Servicos";
+}
+
+<h2>
+    Topdos Servicos (@Model.Servicos.Count())
+    <span>
+        <a class="btn btn-info" asp-area="Administracao" asp-controller="Servicos" asp-action="AdicionaServico">Adiciona Novo Serviço</a>
+    </span>
+</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Salões</th>
+            <th scope="col">Agendamentos</th>
+            <th scope="col">Botão Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var servico in this.Model.Servicos)
+        {
+            <tr>
+                <th scope="row">@servico.Nome</th>
+                <td>@servico.NomeCategoria</td>
+                <td>@servico.Descricao</td>
+                <td>@servico.ContadorSaloes</td>
+                <td>@servico.ContadorAgendamentos</td>
+                <td>
+                    @if (servico.Id <= ConstantesGlobais.ContadoresDadosSemeados.Servicos)
+                    {
+                        <div class="text-muted" style="font-size:smaller">
+                            Dado <br />não pode ser excluido
+                        </div>
+                    }
+                    else
+                    {
+                        <form method="post">
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    asp-area="Administracao" asp-controller="Servicos" asp-action="ExcluiServico" asp-route-id="@servico.Id">
+                                Exclui
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,135 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Agendamentos.AgendamentosListaVisaoModelo
+@{
+    this.ViewData["Title"] = "Seus Agendamentos";
+}
+
+@if (@Model.Appointments.Count() == 0)
+{
+    <div class="row">
+        <div class="col-lg-4 ml-lg-5">
+            <div class="about_text_2">
+                <p>
+                    Oh não! Nada reservado ainda...
+                </p>
+            </div>
+            <div class="about_text_highlight">
+                Marque uma consulta em 3 etapas fáceis:
+            </div>
+            <div class="about_text_highlight">
+                <ol>
+                    <li>Encontre um salão.</li>
+                    <li>Escolha um serviço de beleza.</li>
+                    <li>Reserve uma data e horário.</li>
+                </ol>
+            </div>
+            <div class="about_text_2">
+                <p>
+                    Esperando você de volta aqui. :)
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 ml-lg-5">
+            <div class="button button-large button_1 elements_button mt-4">
+                <a asp-area="" asp-controller="Saloes" asp-action="Index">
+                    <span>Encontre um salão</span>
+                    <span>Encontre um salão</span>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+@if (@Model.Agendamentos.Count() > 0)
+{
+    <h2>Próximos (@Model.Agendamentos.Count())</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Data e Hora</th>
+                <th scope="col">Status <span class="text-info">*</span></th>
+                <th scope="col">Salão</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Cancelamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var agendamento in this.Model.Agendamentos)
+            {
+                <tr>
+                    <th scope="row">@agendamento.DataHora.ToString("f")</th>
+                    <td>
+                        @if (agendamento.Confirmado == true)
+                        {
+                            <span class="badge badge-success">Confirmado</span>
+                        }
+                        else if (agendamento.Confirmado == false)
+                        {
+                            <span class="badge badge-danger">Recusado</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-secondary">Pendente</span>
+                        }
+                    </td>
+                    <td>@agendamento.NomeSalao</td>
+                    <td>@agendamento.NomeCidadeSalao, @agendamento.EnderecoSalao</td>
+                    <td>@agendamento.NomeServico</td>
+                    <td>
+                        <a class="btn btn-outline-danger btn-sm"
+                           asp-area="" asp-controller="Agendamentos" asp-action="CancelaAgendamento" asp-route-id="@agendamento.Id">
+                            Cancela
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-lg-10 ml-lg-5">
+            <div class="about_text_highlight">
+                <span class="text-info">*</span> Status
+            </div>
+            <div class="about_text_2">
+                <ol>
+                    <li>
+                        <span class="badge badge-secondary">Pendente</span>
+                        - Aguardando pela resposta do salão.
+                    </li>
+                    <li>
+                        <span class="badge badge-success">Confirmado</span>
+                        - Parabéns! Seu agendamento foi confirmado.
+                        Estamos esperand por você na dta e hora escolhida.
+                    </li>
+                    <li>
+                        <span class="badge badge-danger">Recusado</span>
+                        - Desculpe, o agendamento não poderá ocorrer na data e hora selecionada.
+                        Verifique seu email para opções de reagendamento do salão.
+                    </li>
+                </ol>
+                <ul>
+                    <li>Ou você pode apenas <strong>agendar novamente.</strong> Lembre das etapas, certo?</li>
+                    <li>Procure por um salão de beleza, escolha um serviço e escolha a data e o horário.</li>
+                    <li>
+                        <div class="button button-large button_1 elements_button mt-4">
+                            <a asp-area="" asp-controller="Saloes" asp-action="Index">
+                                <span>Encontre um salão</span>
+                                <span>Encontre um salão</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+<hr class="bg-dark m-4" style="height: 6px;" />
+
+<div>
+    @await Component.InvokeAsync("AgendamentosAnteriores")
+</div>

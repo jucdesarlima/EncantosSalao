@@ -1,0 +1,10 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Saloes.SaloesListaSimplesVisaoModelo
+@{
+    this.ViewData["Title"] = "Default";
+}
+
+@foreach (var salao in Model.Saloes)
+{
+    <a asp-area="Gerente" asp-controller="Saloes" asp-action="Detalhes" asp-route-id="@salao.Id"
+       class="list-group-item list-group-item-action bg-light">@salao.Nome</a>
+}

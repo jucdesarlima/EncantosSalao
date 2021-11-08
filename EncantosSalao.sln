@@ -7,29 +7,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{E389DEB6-5F9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Web", "Web\EncantosSalao.Web\EncantosSalao.Web.csproj", "{B90D1067-FE4C-400E-BA78-5413E30AB9ED}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{ACBE44C4-E198-45E2-BA02-6655250A0006}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dado", "Dado", "{ACBE44C4-E198-45E2-BA02-6655250A0006}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Data.Models", "Data\EncantosSalao.Data.Models\EncantosSalao.Data.Models.csproj", "{E9FDB52F-52DC-48B2-86E1-0176377BB53F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Dado.Modelos", "Dado\EncantosSalao.Dado.Modelos\EncantosSalao.Dado.Modelos.csproj", "{E9FDB52F-52DC-48B2-86E1-0176377BB53F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{516E002B-9E6E-4456-B7F6-EAA353966DE6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servicos", "Servicos", "{516E002B-9E6E-4456-B7F6-EAA353966DE6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Services", "Services\EncantosSalao.Services\EncantosSalao.Services.csproj", "{8522212F-F01E-4E20-9975-FCF5E10D71DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Servicos", "Servicos\EncantosSalao.Servicos\EncantosSalao.Servicos.csproj", "{8522212F-F01E-4E20-9975-FCF5E10D71DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Services.Messaging", "Services\EncantosSalao.Services.Messaging\EncantosSalao.Services.Messaging.csproj", "{43FDC0C4-F250-45DE-93F8-3CA8A9247CC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Servicos.Mensagens", "Servicos\EncantosSalao.Servicos.Mensagens\EncantosSalao.Servicos.Mensagens.csproj", "{43FDC0C4-F250-45DE-93F8-3CA8A9247CC9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Data", "Data\EncantosSalao.Data\EncantosSalao.Data.csproj", "{4B844ECB-E845-49A6-8B31-85E577933598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Dado", "Dado\EncantosSalao.Dado\EncantosSalao.Dado.csproj", "{4B844ECB-E845-49A6-8B31-85E577933598}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D0D59508-CF8B-4656-A344-396C530BB9DF} = {D0D59508-CF8B-4656-A344-396C530BB9DF}
+		{E9FDB52F-52DC-48B2-86E1-0176377BB53F} = {E9FDB52F-52DC-48B2-86E1-0176377BB53F}
+		{A2288C46-0FBF-43B6-80B6-3072FD65BC32} = {A2288C46-0FBF-43B6-80B6-3072FD65BC32}
+	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Data.Common", "Data\EncantosSalao.Data.Common\EncantosSalao.Data.Common.csproj", "{D0D59508-CF8B-4656-A344-396C530BB9DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Dado.Comum", "Dado\EncantosSalao.Dado.Comum\EncantosSalao.Dado.Comum.csproj", "{D0D59508-CF8B-4656-A344-396C530BB9DF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Common", "EncantosSalao.Common\EncantosSalao.Common.csproj", "{A2288C46-0FBF-43B6-80B6-3072FD65BC32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Comum", "EncantosSalao.Comum\EncantosSalao.Comum.csproj", "{A2288C46-0FBF-43B6-80B6-3072FD65BC32}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Web.Infrastructure", "Web\EncantosSalao.Web.Infrastructure\EncantosSalao.Web.Infrastructure.csproj", "{7A7A7986-1F5B-4EBD-9B17-8B41F8FABA58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Web.Infraestrutura", "Web\EncantosSalao.Web.Infraestrutura\EncantosSalao.Web.Infraestrutura.csproj", "{7A7A7986-1F5B-4EBD-9B17-8B41F8FABA58}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Services.Data", "Services\EncantosSalao.Services.Data\EncantosSalao.Services.Data.csproj", "{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Servicos.Dado", "Servicos\EncantosSalao.Servicos.Dado\EncantosSalao.Servicos.Dado.csproj", "{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Services.Mapping", "Services\EncantosSalao.Services.Mapping\EncantosSalao.Services.Mapping.csproj", "{415FD7FA-0453-4FE1-9A29-C6E1D8B45C3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Servicos.Mapeamento", "Servicos\EncantosSalao.Servicos.Mapeamento\EncantosSalao.Servicos.Mapeamento.csproj", "{415FD7FA-0453-4FE1-9A29-C6E1D8B45C3D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Web.ViewModels", "Web\EncantosSalao.Web.ViewModels\EncantosSalao.Web.ViewModels.csproj", "{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncantosSalao.Web.VisaoModelos", "Web\EncantosSalao.Web.VisaoModelos\EncantosSalao.Web.VisaoModelos.csproj", "{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

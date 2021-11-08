@@ -14,6 +14,13 @@
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Images\**" />
+    <Content Remove="Images\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <None Remove="Images\**" />
+  </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json" />
   </ItemGroup>
@@ -40,13 +47,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\EncantosSalao.Data.Models\EncantosSalao.Data.Models.csproj" />
-    <ProjectReference Include="..\..\Data\EncantosSalao.Data\EncantosSalao.Data.csproj" />
-    <ProjectReference Include="..\..\Services\EncantosSalao.Services.Data\EncantosSalao.Services.Data.csproj" />
-    <ProjectReference Include="..\..\Services\EncantosSalao.Services.Mapping\EncantosSalao.Services.Mapping.csproj" />
-    <ProjectReference Include="..\..\Services\EncantosSalao.Services.Messaging\EncantosSalao.Services.Messaging.csproj" />
-    <ProjectReference Include="..\..\Services\EncantosSalao.Services\EncantosSalao.Services.csproj" />
-    <ProjectReference Include="..\EncantosSalao.Web.Infrastructure\EncantosSalao.Web.Infrastructure.csproj" />
-    <ProjectReference Include="..\EncantosSalao.Web.ViewModels\EncantosSalao.Web.ViewModels.csproj" />
+    <ProjectReference Include="..\..\Dado\EncantosSalao.Dado.Modelos\EncantosSalao.Dado.Modelos.csproj" />
+    <ProjectReference Include="..\..\Dado\EncantosSalao.Dado\EncantosSalao.Dado.csproj" />
+    <ProjectReference Include="..\..\Servicos\EncantosSalao.Servicos.Dado\EncantosSalao.Servicos.Dado.csproj" />
+    <ProjectReference Include="..\..\Servicos\EncantosSalao.Servicos.Mapeamento\EncantosSalao.Servicos.Mapeamento.csproj" />
+    <ProjectReference Include="..\..\Servicos\EncantosSalao.Servicos.Mensagens\EncantosSalao.Servicos.Mensagens.csproj" />
+    <ProjectReference Include="..\..\Servicos\EncantosSalao.Servicos\EncantosSalao.Servicos.csproj" />
+    <ProjectReference Include="..\EncantosSalao.Web.Infraestrutura\EncantosSalao.Web.Infraestrutura.csproj" />
+    <ProjectReference Include="..\EncantosSalao.Web.VisaoModelos\EncantosSalao.Web.VisaoModelos.csproj" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,46 @@
+﻿@using EncantosSalao.Comum
+@{
+    this.ViewData["Title"] = "Painel de Controle do Administrador";
+}
+
+<h3>Bem vindo ao Painel de Controle do Administrador!</h3>
+<p>Aqui está uma navegação rápida:</p>
+<div>
+    <a asp-area="Administracao" asp-controller="NoticiasBlog" asp-action="Index"
+       class="list-group-item list-group-item-action bg-light">Noticias Blog</a>
+
+    <div class="ml-5 my-2">
+        <a class="btn btn-outline-info btn-sm" asp-area="Administracao" asp-controller="NoticiasBlog" asp-action="AdicionaNoticiaBlog">Adiciona Nova Noticia</a>
+    </div>
+
+    <a asp-area="Administracao" asp-controller="Categorias" asp-action="Index"
+       class="list-group-item list-group-item-action bg-light">Categorias</a>
+
+    <dvi class="ml-5 my-2">
+        <a class="btn btn-outline-info btn-sm" asp-area="Administracao" asp-controller="Categorias" asp-action="AddCategory">Adiciona Nova Categoria</a>
+    </dvi>
+
+    <a asp-area="Administracao" asp-controller="Servicos" asp-action="Index"
+       class="list-group-item list-group-item-action bg-light">Serviços</a>
+
+    <div class="ml-5 my-2">
+        <a class="btn btn-outline-info btn-sm" asp-area="Administracao" asp-controller="Servicos" asp-action="AddService">Adiciona Novo Serviço</a>
+    </div>
+
+    <a asp-area="Administracao" asp-controller="Cidades" asp-action="Index"
+       class="list-group-item list-group-item-action bg-light">Cidades</a>
+
+    <div class="ml-5 my-2">
+        <a class="btn btn-outline-info btn-sm" asp-area="Administracao" asp-controller="Cidades" asp-action="AddCity">Adiciona Nova Cidade</a>
+    </div>
+
+    <a asp-area="Administracao" asp-controller="Saloes" asp-action="Index"
+       class="list-group-item list-group-item-action bg-light">Salões</a>
+
+    <div class="ml-5 my-2">
+        <a class="btn btn-outline-info btn-sm" asp-area="Administracao" asp-controller="Saloes" asp-action="AddSalon">Adiciona Novo Salão</a>
+    </div>
+
+    <a asp-area="Administracao" asp-controller="Agendamentos" asp-action="Index"
+       class="list-group-item list-group-item-action bg-light">Agendamentos</a>
+</div>

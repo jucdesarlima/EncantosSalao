@@ -1,4 +1,4 @@
-﻿@model EncantosSalao.Web.ViewModels.Principal.IndexViewModel
+﻿@model EncantosSalao.Web.VisaoModelos.Principal.IndiceVisaoModelo
 @{
     this.ViewData["Title"] = "Pagina Principal";
 }
@@ -21,14 +21,14 @@
                         <!-- Slider -->
                         <div class="owl-carousel owl-theme dept_slider">
 
-                            @foreach (var category in Model.Categories)
+                            @foreach (var categoria in Model.Categorias)
                             {
                                 <!-- Slide -->
                                 <div class="owl-item dept_item">
-                                    <div class="dept_image"><img src="@category.ImageUrl" alt=""></div>
+                                    <div class="dept_image"><img src="@categoria.UrlImagem" alt=""></div>
                                     <div class="dept_content">
-                                        <div class="dept_title">@category.Name</div>
-                                        <div class="dept_link"><a>@category.Description</a></div>
+                                        <div class="dept_title">@categoria.Nome</div>
+                                        <div class="dept_link"><a>@categoria.Descricao</a></div>
                                     </div>
                                 </div>
                             }
@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col">
                 <div class="button services_button ml-auto mr-auto">
-                    <a asp-area="" asp-controller="Categories" asp-action="Index"><span>veja todos</span><span>veja todos</span></a>
+                    <a asp-area="" asp-controller="Categorias" asp-action="Index"><span>veja todas</span><span>veja todas</span></a>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
                 </div>
             </div>
 
-            <!-- Ultimas Noticias -->
+            <!-- Ultimas Noticias BLOG -->
             <div class="col-lg-5">
                 <div class="news-grey">
                     <div class="news_title">Últimas Notícias</div>

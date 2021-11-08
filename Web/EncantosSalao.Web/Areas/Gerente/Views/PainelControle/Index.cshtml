@@ -1,0 +1,11 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Saloes.SaloesListaVisaoModelo
+@{
+    this.ViewData["Title"] = "Painel de Controle para gerenciamento dos Saloes";
+}
+
+<h3>Bem vindo ao painel de controle para gerenciamento dos salões!</h3>
+<p>Aqui estão os salões para você gerenciar:</p>
+
+<div>
+    @await Component.InvokeAsync("SaloesListaSimples")
+</div>

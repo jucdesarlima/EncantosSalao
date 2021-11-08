@@ -1,0 +1,53 @@
+﻿@model EncantosSalao.Web.VisaoModelos.NoticiasBlog.NoticiasBlogEntradaModelo
+@{
+    this.ViewData["Title"] = "Adiciona Noticia ao Blog";
+}
+
+<div class="col-lg-6">
+    <h2>Nova Noticia para o Blog</h2>
+    <form method="post" enctype="multipart/form-data" class="pt-4">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="@Model.Titulo" class="form-control" required="required">
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Autor</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="@Model.Autor" class="form-control" required="required">
+                <span asp-validation-for="Autor" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Imagem</label>
+            <div class="col-sm-10">
+                <input type="file" asp-for="@Model.Imagem" class="form-control-file image-upload" required="required" />
+                <span asp-validation-for="Imagem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Conteudo</label>
+            <div class="col-sm-10">
+                <textarea type="text" asp-for="@Model.Conteudo" class="form-control" required="required"></textarea>
+                <span asp-validation-for="Conteudo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 text-right">
+                <button type="submit" class="btn btn-success"
+                        asp-area="Administracao" asp-controller="NoticiasBlog" asp-action="AdicionaNoticiasBlog">
+                    Adiciona Noticias ao Blog
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <a class="btn btn-danger" asp-area="Administracao" asp-controller="NoticiasBlog" asp-action="Index">Cancela</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/js/upload-image.js" asp-append-version="true"></script>
+}

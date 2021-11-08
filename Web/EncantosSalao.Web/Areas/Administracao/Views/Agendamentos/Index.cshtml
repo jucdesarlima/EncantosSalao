@@ -1,0 +1,43 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Agendamentos.AgendamentosListaVisaoModelo
+@{
+    this.ViewData["Title"] = "Agendamentos";
+}
+
+<h2>Todos Agendamentos (@Model.Agendamentos.Count())</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">DataHora</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Salao</th>
+            <th scope="col">Servico</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var agendamento in this.Model.Agendamentos)
+        {
+            <tr>
+                <th scope="row">@agendamento.DataHora.ToString("f")</th>
+                <td>@agendamento.EmailUsuario</td>
+                <td>@agendamento.NomeSalao</td>
+                <td>@agendamento.NomeServico</td>
+                <td>
+                    @if (agendamento.Confirmado == true)
+                    {
+                        <span class="badge badge-success">Confirmado</span>
+                    }
+                    else if (agendamento.Confirmado == false)
+                    {
+                        <span class="badge badge-danger">Recusado</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-secondary">Pendente</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

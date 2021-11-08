@@ -9,8 +9,8 @@
       "allowedHungarianPrefixes": [ "db", "at", "or", "up", "it", "un", "x", "y", "id", "ip", "bg" ]
     },
     "documentationRules": {
-      "companyName": "BeautyBooking",
-      "copyrightText": "Copyright (c) {companyName}. All Rights Reserved.",
+      "companyName": "EncantosSalao",
+      "copyrightText": "Direitos de copia para (c) {companyName}. Todos os Direitos Reservados.",
       "documentInterfaces": false,
       "documentInternalElements": false
     },

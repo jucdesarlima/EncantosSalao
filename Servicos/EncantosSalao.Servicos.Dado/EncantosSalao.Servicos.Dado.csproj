@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\..\stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164" PrivateAssets="all">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dado\EncantosSalao.Dado.Comum\EncantosSalao.Dado.Comum.csproj" />
+    <ProjectReference Include="..\..\Dado\EncantosSalao.Dado.Modelos\EncantosSalao.Dado.Modelos.csproj" />
+    <ProjectReference Include="..\..\Web\EncantosSalao.Web.VisaoModelos\EncantosSalao.Web.VisaoModelos.csproj" />
+    <ProjectReference Include="..\EncantosSalao.Servicos.Mapeamento\EncantosSalao.Servicos.Mapeamento.csproj" />
+  </ItemGroup>
+
+</Project>

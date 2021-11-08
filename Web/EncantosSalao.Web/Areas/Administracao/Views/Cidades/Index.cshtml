@@ -1,0 +1,48 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Cidades.CidadesListaVisaoModelo
+@using EncantosSalao.Comum
+@{
+    this.ViewData["Title"] = "Cidades";
+}
+
+<h2>
+    Todas Cidades (@Model.Cidades.Count())
+    <span>
+        <a class="btn btn-info" asp-area="Administracao" asp-controller="Cidades" asp-action="AdicionaCidade">Adiciona Nova Cidade</a>
+    </span>
+</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Salões</th>
+            <th scope="col">Botão Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cidade in this.Model.Cidades)
+        {
+            <tr>
+                <th scope="row">@city.Nome</th>
+                <td>@cidade.ContadorSaloes</td>
+                <td>
+                    @if (cidade.Id <= ConstantesGlobais.ContadoresDadosSemeados.Cidades)
+                    {
+                        <div class="text-muted" style="font-size:smaller">
+                            Dado <br />não pode ser excluido
+                        </div>
+                    }
+                    else
+                    {
+                        <form method="post">
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    asp-area="Administracao" asp-controller="Cidades" asp-action="ExcluiCidade" asp-route-id="@cidade.Id">
+                                Exclui
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,80 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Saloes.SalaoComServicosVisaoModelo
+@{
+    this.ViewData["Title"] = "Gerente do Salão: " + Model.Nome;
+}
+
+<div class="row row-eq-height">
+    <!-- Info Box -->
+    <div class="col-lg-5 info_box_col">
+        <div class="info_box">
+            <div class="info_image"><img src="@Model.UrlImagem" alt=""></div>
+            <div class="info_content">
+                <div class="info_title">@Model.Nome</div>
+                <div class="info_text">Categoria: <strong>@Model.NomeCategoria</strong></div>
+                <div class="info_text">Cidade: <strong>@Model.NomeCidade</strong></div>
+                <div class="info_text">Endereco: <strong>@Model.Endereco</strong></div>
+                <div class="info_text">
+                    Avaliação: &nbsp;&nbsp;
+                    <span class="star-rating">
+                        <span class="fa fa-star-o" data-rating="1"></span>
+                        <span class="fa fa-star-o" data-rating="2"></span>
+                        <span class="fa fa-star-o" data-rating="3"></span>
+                        <span class="fa fa-star-o" data-rating="4"></span>
+                        <span class="fa fa-star-o" data-rating="5"></span>
+                        <input type="hidden" name="whatever1" class="rating-value" value="@Model.Avaliacao">
+                    </span>
+                    <span>&nbsp; ( @Model.Avaliacao.ToString("F") / 5.00 ) a partir @Model.ContadorAvaliadores votos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Panel -->
+    <div class="col-lg-7">
+        <h1>Serviços:</h1>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Disponivel</th>
+                    <th scope="col">Mudança</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var servico in Model.Servicos)
+                {
+                    <tr>
+                        <th scope="row">@servico.NomeServico</th>
+                        <td>
+                            @if (servico.Disponivel == true)
+                            {
+                                <span style="font-family:Arial, FontAwesome" class="text-success">&#xf00c;</span>
+                            }
+                            else
+                            {
+                                <span style="font-family:Arial, FontAwesome" class="text-danger">&#xf00d;</span>
+                            }
+                        </td>
+                        <td>
+                            <form method="post">
+                                <button type="submit" class="btn btn-outline-info btn-sm"
+                                        asp-area="Gerente" asp-controller="Saloes" asp-action="AlteraServicoDisponivelStatus" 
+                                        asp-route-salonId="@Model.Id" asp-route-serviceId="@servico.IdServico">
+                                    Altera
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr class="bg-dark mx-4" style="height: 6px;" />
+
+<div>
+    @await Component.InvokeAsync("AllAppointmentsBySalon", Model.Id)
+</div>
+
+@section Scripts {
+    <script src="~/js/rating-static.js" asp-append-version="true"></script>
+}

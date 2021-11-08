@@ -1,0 +1,64 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Saloes.SalaoEntradaModelo
+@{
+    this.ViewData["Title"] = "Adiciona Salao";
+    var categorias = this.ViewData["Categorias"] as SelectList;
+    var cidades = this.ViewData["Cidades"] as SelectList;
+}
+
+<div class="col-lg-6">
+    <h2>Novo Salao</h2>
+    <form method="post" enctype="multipart/form-data" class="pt-4">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nome</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="@Model.Nome" class="form-control" required="required">
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Imagem</label>
+            <div class="col-sm-10">
+                <input type="file" asp-for="@Model.Imagem" class="form-control-file image-upload" required="required" />
+                <span asp-validation-for="Imagem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Categoria</label>
+            <div class="col-sm-10">
+                <select asp-for="@Model.IdCategoria" class="form-control" asp-items="@categorias">
+                </select>
+                <span asp-validation-for="IdCategoria" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Cidade</label>
+            <div class="col-sm-10">
+                <select asp-for="@Model.IdCidade" class="form-control" asp-items="@cidades">
+                </select>
+                <span asp-validation-for="IdCidade" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Endereco</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="@Model.Endereco" class="form-control" required="required">
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 text-right">
+                <button type="submit" class="btn btn-success"
+                        asp-area="Administracao" asp-controller="Saloes" asp-action="AdicionaSalao">
+                    Adiciona Salão
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <a class="btn btn-danger" asp-area="Administracao" asp-controller="Saloes" asp-action="Index">Cancela</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/js/upload-image.js" asp-append-version="true"></script>
+}

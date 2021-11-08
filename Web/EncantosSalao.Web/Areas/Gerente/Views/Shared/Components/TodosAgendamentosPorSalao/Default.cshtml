@@ -1,0 +1,77 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Agendamentos.AgendamentosListaVisaoModelo
+@{
+    this.ViewData["Title"] = "Default";
+}
+
+<div class="row row-eq-height">
+    <div class="col-lg-12">
+        <h1 class="my-3">Agendamentos</h1>
+
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">DataHora</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Serviço</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Confirma</th>
+                    <th scope="col">Recusa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var agendamento in this.Model.Agendamentos)
+                {
+                    <tr>
+                        <th scope="row">@agendamento.DataHora.ToString("f")</th>
+                        <td>@agendamento.EmailUsuario</td>
+                        <td>@agendamento.NomeServico</td>
+                        <td>
+                            @if (agendamento.Confirmado == true)
+                            {
+                                <span class="badge badge-success">Confirmado</span>
+                            }
+                            else if (agendamento.Confirmado == false)
+                            {
+                                <span class="badge badge-danger">Recusado</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-secondary">Pendente</span>
+                            }
+                        </td>
+                        @if (agendamento.DataHora.Date > DateTime.UtcNow.Date)
+                        {
+                            <td>
+                                <form method="post">
+                                    <button type="submit" class="btn btn-success btn-sm"
+                                            asp-area="Gerente" asp-controller="Saloes" asp-action="ConfirmaAgendamento" 
+                                            asp-route-id="@agendamento.Id" asp-route-salonId="@agendamento.IdSalao">
+                                        Confirma
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                            asp-area="Gerente" asp-controller="Saloes" asp-action="RecusaAgendamento" 
+                                            asp-route-id="@agendamento.Id" asp-route-salonId="@agendamento.IdSalao">
+                                        Recusa
+                                    </button>
+                                </form>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                Past
+                            </td>
+                            <td>
+                                Past
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

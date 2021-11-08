@@ -1,4 +1,4 @@
-﻿@model EncantosSalao.Web.ViewModels.Categories.CategoriesSimpleListViewModel
+﻿@model EncantosSalao.Web.VisaoModelos.Categorias.CategoriasSimplesListaVisaoModelo
 @{
     this.ViewData["Title"] = "Default";
 }
@@ -8,15 +8,15 @@
         Procura por categoria
     </button>
     <div class="dropdown-menu">
-        @foreach (var category in Model.Categories)
+        @foreach (var categoria in Model.Categorias)
         {
             <a class="dropdown-item" 
-               asp-area="" asp-controller="Salons" asp-action="Index" asp-route-sortId="@category.Id">
-                @category.Name (@category.SalonsCount)
+               asp-area="" asp-controller="Saloes" asp-action="Index" asp-route-sortId="@categoria.Id">
+                @categoria.Nome (@categoria.ContadorSaloes)
             </a>
         }
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" asp-area="" asp-controller="Salons" asp-action="Index">Todos os Salões</a>
+        <a class="dropdown-item" asp-area="" asp-controller="Saloes" asp-action="Index">Todos os Salões</a>
     </div>
 </div>
 

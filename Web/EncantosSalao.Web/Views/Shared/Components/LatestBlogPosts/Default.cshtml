@@ -1,25 +1,25 @@
-﻿@model EncantosSalao.Web.ViewModels.BlogPosts.BlogPostsListViewModel
+﻿@model EncantosSalao.Web.VisaoModelos.NoticiasBlog.NoticiasBlogListaVisaoModelo
 @{
     this.ViewData["Title"] = "Default";
 }
 
-@foreach (var blogPost in Model.BlogPosts)
+@foreach (var noticiasBlog in Model.NoticiasBlog)
 {
     <!-- Latest News Post -->
     <div class="latest d-flex flex-row align-items-start justify-content-start">
-        <div><div class="latest_image"><img src="@blogPost.ImageUrl" alt=""></div></div>
+        <div><div class="latest_image"><img src="@noticiasBlog.UrlImagem" alt=""></div></div>
         <div class="latest_content">
             <div class="latest_title">
-                <a asp-area="" asp-controller="BlogPosts" asp-action="Index" asp-route-sortId="@blogPost.Id">@blogPost.Title</a>
+                <a asp-area="" asp-controller="NoticiasBlog" asp-action="Index" asp-route-sortId="@noticiasBlog.Id">@noticiasBlog.Titulo</a>
             </div>
             <div class="latest_info">
                 <ul class="d-flex flex-row align-items-start justify-content-start">
-                    <li><a>by @blogPost.Author</a></li>
-                    <li><a>@blogPost.CreatedOn.Date.ToString("D")</a></li>
+                    <li><a>by @noticiasBlog.Autor</a></li>
+                    <li><a>@noticiasBlog.CriadoEm.Date.ToString("D")</a></li>
                 </ul>
             </div>
             <div class="latest_comments">
-                <a asp-area="" asp-controller="BlogPosts" asp-action="Index" asp-route-sortId="@blogPost.Id">Read</a>
+                <a asp-area="" asp-controller="NoticiasBlog" asp-action="Index" asp-route-sortId="@noticiasBlog.Id">Leia</a>
             </div>
         </div>
     </div>

@@ -3,33 +3,33 @@
     using System.Diagnostics;
     using System.Threading.Tasks;
 
-    using EncantosSalao.Common;
-    using EncantosSalao.Services.Data.BlogPosts;
-    using EncantosSalao.Services.Data.Categories;
-    using EncantosSalao.Web.ViewModels;
-    using EncantosSalao.Web.ViewModels.Principal;
+    using EncantosSalao.Comum;
+    using EncantosSalao.Servicos.Dado.Categorias;
+    using EncantosSalao.Servicos.Dado.NoticiasBlog;
+    using EncantosSalao.Web.VisaoModelos;
+    using EncantosSalao.Web.VisaoModelos.Principal;
     using Microsoft.AspNetCore.Mvc;
 
     public class PrincipalController : BaseController
     {
-        private readonly ICategoriesService categoriesService;
-        private readonly IBlogPostsService blogPostsService;
+        private readonly ICategoriasServico servicoCategorias;
+        private readonly INoticiasBlogServico servicoNoticiasBlog;
 
         public PrincipalController(
-            ICategoriesService categoriesService,
-            IBlogPostsService blogPostsService)
+            ICategoriasServico servicoCategorias,
+            INoticiasBlogServico servicoNoticiasBlog)
         {
-            this.categoriesService = categoriesService;
-            this.blogPostsService = blogPostsService;
+            this.servicoCategorias = servicoCategorias;
+            this.servicoNoticiasBlog = servicoNoticiasBlog;
         }
 
         public async Task<IActionResult> Index()
         {
-            var viewModel = new IndexViewModel
+            var viewModel = new IndiceVisaoModelo
             {
                 Categories =
-                    await this.categoriesService.GetAllAsync<IndexCategoryViewModel>(
-                        GlobalConstants.SeededDataCounts.Categories),
+                    await this.servicoCategorias.PegaTodosAsync<IndiceCategoriaVisaoModelo>(
+                        ConstantesGlobais.ContadoresDadosSemeados.Categorias),
             };
             return this.View(viewModel);
         }
@@ -57,7 +57,7 @@
         public IActionResult Error()
         {
             return this.View(
-                new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+                new ErroVisaoModelo { IdRequisicao = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
     }
 }

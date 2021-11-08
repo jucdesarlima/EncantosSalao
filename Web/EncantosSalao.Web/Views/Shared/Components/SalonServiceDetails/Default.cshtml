@@ -1,4 +1,4 @@
-﻿@model EncantosSalao.Web.ViewModels.SalonServices.SalonServiceDetailsViewModel
+﻿@model EncantosSalao.Web.VisaoModelos.SalaoServicos.SalaoServicoDetalhesVisaoModelo
 @{
     ViewData["Title"] = "Default";
 }
@@ -6,18 +6,18 @@
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Salon</label>
     <div class="col-sm-10">
-        <div class="form-control">@Model.SalonName</div>
+        <div class="form-control">@Model.NomeSalao</div>
     </div>
 </div>
 <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Address</label>
+    <label class="col-sm-2 col-form-label">Endereco</label>
     <div class="col-sm-10">
-        <div class="form-control">@Model.SalonCityName, @Model.SalonAddress</div>
+        <div class="form-control">@Model.NomeCidadeSalao, @Model.EnderecoSalao</div>
     </div>
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Service</label>
     <div class="col-sm-10">
-        <div class="form-control">@Model.ServiceName</div>
+        <div class="form-control">@Model.NomeServico</div>
     </div>
 </div>

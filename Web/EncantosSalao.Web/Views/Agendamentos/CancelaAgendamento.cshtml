@@ -1,0 +1,46 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Agendamentos.AgendamentoVisaoModelo
+@{
+    this.ViewData["Title"] = "Cancela Agendamento";
+}
+
+<h3><strong>Tem certeza que deseja cancelar este agendamento?</strong></h3>
+<form class="col-6 mt-5">
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Data e Hora</label>
+        <div class="col-sm-7">
+            <div class="form-control">@Model.DataHora</div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Salao</label>
+        <div class="col-sm-7">
+            <div class="form-control">@Model.NomeSalao</div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Endereço</label>
+        <div class="col-sm-7">
+            <div class="form-control">@Model.NomeCidadeSalao, @Model.EnderecoSalao</div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Service</label>
+        <div class="col-sm-7">
+            <div class="form-control">@Model.NomeServico</div>
+        </div>
+    </div>
+</form>
+
+<div class="col-6 mt-5 ml-5">
+    <div class="row ml-5">
+        <form method="post">
+            <button type="submit" class="btn btn-outline-success"
+                    asp-area="" asp-controller="Agendamentos" asp-action="ExcluiAgendamento" asp-route-id="@Model.Id">
+                Sim, Cancele o agendamento!
+            </button>
+        </form>
+        <div class="ml-5">
+            <a class="btn btn-danger" asp-area="" asp-controller="Agendamentos" asp-action="Index">Não! Retorne.</a>
+        </div>
+    </div>
+</div>

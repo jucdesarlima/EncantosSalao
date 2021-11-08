@@ -1,0 +1,56 @@
+﻿@model EncantosSalao.Web.VisaoModelos.Categorias.CategoriasListaVisaoModelo
+@using EncantosSalao.Comum
+@{
+    this.ViewData["Title"] = "Categorias";
+}
+
+<h2>
+    Todas Categorias (@Model.Categorias.Count())
+    <span>
+        <a class="btn btn-info" asp-area="Administracao" asp-controller="Categorias" asp-action="AdicionaCategoria">Adiciona Nova Categoria</a>
+    </span>
+</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Imagem</th>
+            <th scope="col">Descricao</th>
+            <th scope="col">Servicos</th>
+            <th scope="col">Saloes</th>
+            <th scope="col">Botao Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in this.Model.Categorias)
+        {
+            <tr>
+                <th scope="row">@categoria.Nome</th>
+                <td>
+                    <img class="align-self-center" src="@categoria.UrlImagem" style="width:180px;height:120px;">
+                </td>
+                <td>@categoria.Descricao</td>
+                <td>@categoria.ContagemServicos</td>
+                <td>@categoria.ContagemSaloes</td>
+                <td>
+                    @if (categoria.Id <= ConstantesGlobais.ContadoresDadosSemeados.Categorias)
+                    {
+                        <div class="text-muted" style="font-size:smaller">
+                            Dado <br />não pode ser excluido
+                        </div>
+                    }
+                    else
+                    {
+                        <form method="post">
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    asp-area="Administracao" asp-controller="Categorias" asp-action="ExcluiCategoria" asp-route-id="@categoria.Id">
+                                Exclui
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

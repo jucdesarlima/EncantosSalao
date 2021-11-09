@@ -9,21 +9,21 @@
         public void Configure(EntityTypeBuilder<ApplicationUser> appUser)
         {
             appUser
-                .HasMany(e => e.Claims)
+                .HasMany(e => e.Reivindicacoes)
                 .WithOne()
                 .HasForeignKey(e => e.UserId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
             appUser
-                .HasMany(e => e.Logins)
+                .HasMany(e => e.Usuarios)
                 .WithOne()
                 .HasForeignKey(e => e.UserId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
             appUser
-                .HasMany(e => e.Roles)
+                .HasMany(e => e.Papeis)
                 .WithOne()
                 .HasForeignKey(e => e.UserId)
                 .IsRequired()

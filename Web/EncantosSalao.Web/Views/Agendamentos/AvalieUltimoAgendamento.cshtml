@@ -1,11 +1,11 @@
-﻿@model EncantosSalao.Web.ViewModels.Appointments.AppointmentRatingViewModel
+﻿@model EncantosSalao.Web.VisaoModelos.Agendamentos.AgendamentoAvaliacaoVisaoModelo
 @{
-    this.ViewData["Title"] = "Rate Past Appointment";
+    this.ViewData["Title"] = "Avaliacao Agendamento Anterior";
 }
 
-@if (Model.IsSalonRatedByTheUser == true)
+@if (Model.EstaSalaoAvaliadoPeloUsuario == true)
 {
-    <h3>You already rated the Salon for this appointment!</h3>
+    <h3>Voce ja avaliou este Salao para este agendamento!</h3>
 
     <div class="pt-3">
         <a class="btn btn-info" asp-area="" asp-controller="Agendamentos" asp-action="Index">
@@ -19,12 +19,12 @@ else
         <!-- Info Box -->
         <div class="col-lg-4 info_box_col">
             <div class="info_box">
-                <div class="info_image"><img src="@Model.SalonImageUrl" alt=""></div>
+                <div class="info_image"><img src="@Model.UrlImagemSalao" alt=""></div>
                 <div class="info_content">
-                    <div class="info_title">@Model.SalonName</div>
-                    <div class="info_text">Categoria: <strong>@Model.SalonCategoryName</strong></div>
-                    <div class="info_text">Cidade: <strong>@Model.SalonCityName</strong></div>
-                    <div class="info_text">Endereço: <strong>@Model.SalonAddress</strong></div>
+                    <div class="info_title">@Model.NomeSalao</div>
+                    <div class="info_text">Categoria: <strong>@Model.NomeCategoriaSalao</strong></div>
+                    <div class="info_text">Cidade: <strong>@Model.NomeCidadeSalao</strong></div>
+                    <div class="info_text">Endereço: <strong>@Model.EnderecoSalao</strong></div>
                 </div>
             </div>
         </div>
@@ -48,17 +48,17 @@ else
                             <span class="fa fa-star-o" data-rating="5"></span>
                             <input type="hidden" class="rating-value form-control form-control-sm" id="selectedRating" value="0.0" />
                             <input type="number" class="form-control form-control-sm disabled" value="0"
-                                   asp-for="@Model.RateValue" required readonly />
-                            <span asp-validation-for="RateValue" class="text-danger"></span>
+                                   asp-for="@Model.ValorAvaliado" required readonly />
+                            <span asp-validation-for="ValorAvaliado" class="text-danger"></span>
                         </div>
                     </div>
                     <div>
-                        <input asp-for="@Model.SalonId" value="@Model.SalonId" class="form-control" hidden>
+                        <input asp-for="@Model.IdSalao" value="@Model.IdSalao" class="form-control" hidden>
                         <input asp-for="@Model.Id" value="@Model.Id" class="form-control" hidden>
                     </div>
                     <div class="row my-3">
                         <button type="submit" class="btn btn-outline-success"
-                                asp-area="" asp-controller="Agendamentos" asp-action="RateSalon">
+                                asp-area="" asp-controller="Agendamentos" asp-action="AvaliacaoSalao">
                             Avaliado!
                         </button>
                     </div>

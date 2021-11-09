@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    using EncantosSalao.Services.Dado.Agendamentos;
+    using EncantosSalao.Servicos.Dado.Agendamentos;
     using EncantosSalao.Web.VisaoModelos.Agendamentos;
     using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +17,10 @@
 
         public async Task<IActionResult> Index()
         {
-            var viewModel = new AgendamentoListViewModel
+            var viewModel = new AgendamentosListaVisaoModelo
             {
                 Agendamentos =
-                    await this.servicoAgendamentos.PegaTodosAsync<AgendamentoListViewModel>(),
+                    await this.servicoAgendamentos.PegaTodosAsync<AgendamentoVisaoModelo >(),
             };
             return this.View(viewModel);
         }

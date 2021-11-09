@@ -21,7 +21,7 @@
         {
             var viewModel = new CategoriasListaVisaoModelo
             {
-                Categories = await this.servicoCategorias.PegaTodosAsync<CategoriasListaVisaoModelo>(),
+                Categorias = await this.servicoCategorias.PegaTodosAsync<CategoriaVisaoModelo>(),
             };
             return this.View(viewModel);
         }

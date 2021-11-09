@@ -7,7 +7,7 @@
 
     using EncantosSalao.Dado.Comum.Repositorios;
     using EncantosSalao.Dado.Modelos;
-    using EncantosSalao.Servicos.Mapeamentos;
+    using EncantosSalao.Servicos.Mapeamento;
     using Microsoft.EntityFrameworkCore;
 
     public class SaloesServico : ISaloesServico
@@ -133,7 +133,7 @@
             await this.repositorioSaloes.SaveChangesAsync();
         }
 
-        public async Task AvaliaSalaoAsync(string id, int valorAvaliacao)
+        public async Task AvaliarSalaoAsync(string id, int valorAvaliacao)
         {
             var salao =
                 await this.repositorioSaloes

@@ -27,7 +27,7 @@
         {
             var viewModel = new IndiceVisaoModelo
             {
-                Categories =
+                Categorias =
                     await this.servicoCategorias.PegaTodosAsync<IndiceCategoriaVisaoModelo>(
                         ConstantesGlobais.ContadoresDadosSemeados.Categorias),
             };

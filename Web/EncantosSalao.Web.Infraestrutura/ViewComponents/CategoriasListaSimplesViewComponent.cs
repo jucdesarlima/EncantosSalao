@@ -6,11 +6,11 @@
     using EncantosSalao.Web.VisaoModelos.Categorias;
     using Microsoft.AspNetCore.Mvc;
 
-    public class CategoriesSimpleListViewComponent : ViewComponent
+    public class CategoriasListaSimplesViewComponent : ViewComponent
     {
         private readonly ICategoriasServico categoriesService;
 
-        public CategoriesSimpleListViewComponent(ICategoriasServico categoriesService)
+        public CategoriasListaSimplesViewComponent(ICategoriasServico categoriesService)
         {
             this.categoriesService = categoriesService;
         }

@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using EncantosSalao.Data.Models;
+using EncantosSalao.Dado.Modelos;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

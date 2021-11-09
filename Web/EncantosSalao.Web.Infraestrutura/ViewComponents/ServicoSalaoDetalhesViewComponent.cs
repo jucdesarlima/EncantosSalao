@@ -6,11 +6,11 @@
     using EncantosSalao.Web.VisaoModelos.SalaoServicos;
     using Microsoft.AspNetCore.Mvc;
 
-    public class SalonServiceDetailsViewComponent : ViewComponent
+    public class ServicoSalaoDetalhesViewComponent : ViewComponent
     {
         private readonly ISalaoServicosServico servicosSalaoServico;
 
-        public SalonServiceDetailsViewComponent(ISalaoServicosServico servicosSalaoServico)
+        public ServicoSalaoDetalhesViewComponent(ISalaoServicosServico servicosSalaoServico)
         {
             this.servicosSalaoServico = servicosSalaoServico;
         }

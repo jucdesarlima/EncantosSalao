@@ -22,13 +22,13 @@
                     new Salao
                     {
                         Id = "semeado" + Guid.NewGuid().ToString(),
-                        Name = "Salão Encantos",
-                        CategoryId = 1,
-                        CityId = 1,
-                        Address = "Rua Paulo Faccini, 250",
-                        ImageUrl = ConstantesGlobais.Imagens.EncantosSalao,
-                        Rating = 0.0,
-                        RatersCount = 0,
+                        Nome = "Salão Encantos",
+                        IdCategoria = 1,
+                        IdCidade = 1,
+                        Endereco = "Rua Paulo Faccini, 250",
+                        UrlImagem = ConstantesGlobais.Imagens.EncantosSalao,
+                        Avaliacao = 0.0,
+                        ContarAvaliadores = 0,
                     },
                 };
 

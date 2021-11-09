@@ -4,6 +4,6 @@
     {
         public string IdRequisicao { get; set; }
 
-        public bool MostraIdReuisicao => !string.IsNullOrEmpty(this.IdRequisicao);
+        public bool MostraIdRequisicao => !string.IsNullOrEmpty(this.IdRequisicao);
     }
 }

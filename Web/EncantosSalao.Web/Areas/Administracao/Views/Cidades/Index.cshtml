@@ -23,7 +23,7 @@
         @foreach (var cidade in this.Model.Cidades)
         {
             <tr>
-                <th scope="row">@city.Nome</th>
+                <th scope="row">@cidade.Nome</th>
                 <td>@cidade.ContadorSaloes</td>
                 <td>
                     @if (cidade.Id <= ConstantesGlobais.ContadoresDadosSemeados.Cidades)

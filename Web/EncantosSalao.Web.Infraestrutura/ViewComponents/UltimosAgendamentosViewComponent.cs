@@ -8,12 +8,12 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
-    public class PastAppointmentsViewComponent : ViewComponent
+    public class UltimosAgendamentosViewComponent : ViewComponent
     {
         private readonly IAgendamentosServico servicoAgendamentos;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public PastAppointmentsViewComponent(
+        public UltimosAgendamentosViewComponent(
             IAgendamentosServico servicoAgendamentos,
             UserManager<ApplicationUser> userManager)
         {

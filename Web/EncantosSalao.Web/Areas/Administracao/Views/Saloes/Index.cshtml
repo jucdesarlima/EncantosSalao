@@ -1,10 +1,10 @@
-﻿@model EncantosSalao.Web.ViewModels.Salons.SalonsListViewModel
+﻿@model EncantosSalao.Web.VisaoModelos.Saloes.SaloesListaVisaoModelo
 @{
     this.ViewData["Title"] = "Salons";
 }
 
 <h2>
-    All Salons (@Model.Salons.Count())
+    All Salons (@Model.Saloes.Count())
     <span>
         <a class="btn btn-info" asp-area="Administracao" asp-controller="Saloes" asp-action="AddSalon">Adiciona Novo Salão</a>
     </span>
@@ -24,20 +24,20 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var salon in this.Model.Salons)
+        @foreach (var salao in this.Model.Saloes)
         {
             <tr>
-                <th scope="row">@salon.Name</th>
+                <th scope="row">@salao.Nome</th>
                 <td>
-                    <img class="align-self-center" src="@salon.ImageUrl" style="width:180px;height:120px;">
+                    <img class="align-self-center" src="@salao.UrlImagem" style="width:180px;height:120px;">
                 </td>
-                <td>@salon.CategoryName</td>
-                <td>@salon.CityName</td>
-                <td>@salon.Address</td>
-                <td><strong>@salon.Rating.ToString("F") / 5.00</strong> a partir <strong>@salon.RatersCount</strong> votos</td>
-                <td>@salon.AppointmentsCount</td>
+                <td>@salao.NomeCategoria</td>
+                <td>@salao.NomeCidade</td>
+                <td>@salao.Endereco</td>
+                <td><strong>@salao.Avaliacao.ToString("F") / 5.00</strong> a partir <strong>@salao.ContadorAvaliadores</strong> votos</td>
+                <td>@salao.ContadorAgendamntos</td>
                 <td>
-                    @if (salon.Id.StartsWith("seeded"))
+                    @if (salao.Id.StartsWith("semeado"))
                     {
                         <div class="text-muted" style="font-size:smaller">
                             Dado <br />não pode ser excluido
@@ -47,7 +47,7 @@
                     {
                         <form method="post">
                             <button type="submit" class="btn btn-danger btn-sm"
-                                    asp-area="Administracao" asp-controller="Saloes" asp-action="DeleteSalon" asp-route-id="@salon.Id">
+                                    asp-area="Administracao" asp-controller="Saloes" asp-action="DeleteSalon" asp-route-id="@salao.Id">
                                 Exclui
                             </button>
                         </form>

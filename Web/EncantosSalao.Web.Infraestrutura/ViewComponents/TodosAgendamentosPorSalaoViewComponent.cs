@@ -6,11 +6,11 @@
     using EncantosSalao.Web.VisaoModelos.Agendamentos;
     using Microsoft.AspNetCore.Mvc;
 
-    public class AllAppointmentsBySalonViewComponent : ViewComponent
+    public class TodosAgendamentosPorSalaoViewComponent : ViewComponent
     {
         private readonly IAgendamentosServico servicoAgendamentos;
 
-        public AllAppointmentsBySalonViewComponent(IAgendamentosServico servicoAgendamentos)
+        public TodosAgendamentosPorSalaoViewComponent(IAgendamentosServico servicoAgendamentos)
         {
             this.servicoAgendamentos = servicoAgendamentos;
         }

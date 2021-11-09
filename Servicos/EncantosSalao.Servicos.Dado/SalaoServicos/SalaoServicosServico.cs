@@ -18,7 +18,7 @@
             this.repositorioServicosSalao = repositorioServicosSalao;
         }
 
-        public async Task<T> GetByIdAsync<T>(string idSalao, int idServico)
+        public async Task<T> PegaPorIdAsync<T>(string idSalao, int idServico)
         {
             var servicoSalao =
                 await this.repositorioServicosSalao
@@ -58,7 +58,7 @@
             await this.repositorioServicosSalao.SaveChangesAsync();
         }
 
-        public async Task ChangeAvailableStatusAsync(string idSalao, int idServico)
+        public async Task AlteraStatusDisponivelAsync(string idSalao, int idServico)
         {
             var servicoSalao =
                 await this.repositorioServicosSalao

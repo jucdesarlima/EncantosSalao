@@ -1,42 +1,42 @@
-﻿@model EncantosSalao.Web.ViewModels.Salons.SalonsPaginatedListViewModel
+﻿@model EncantosSalao.Web.VisaoModelos.Saloes.SaloesListaPaginadaVisaoModelo
 @{
     this.ViewData["Title"] = "Salões de Beleza";
 }
 
 <div>
-    @await Component.InvokeAsync("CategoriesSimpleList")
+    @await Component.InvokeAsync("CategoriasListaSimples")
 </div>
 <div class="text-center text-dark pb-5">
-    <h2><strong>@this.ViewData["CategoryName"]?.ToString()</strong></h2>
+    <h2><strong>@this.ViewData["NomeCategoria"]?.ToString()</strong></h2>
 </div>
 
-@if (!Model.Salons.Any())
+@if (!Model.Saloes.Any())
 {
     <h2 class="ml-5">No results!</h2>
 }
 
 <div class="row row-eq-height">
-    @foreach (var salon in Model.Salons)
+    @foreach (var salao in Model.Saloes)
     {
         <div class="col-xl-3 col-md-6">
             <div class="doctor">
-                <div class="doctor_image"><img src="@salon.ImageUrl" alt=""></div>
+                <div class="doctor_image"><img src="@salao.UrlImagem" alt=""></div>
                 <div class="doctor_content">
                     <div class="doctor_name">
-                        <a asp-area="" asp-controller="Saloes" asp-action="Details" asp-route-id="@salon.Id">@salon.Name</a>
+                        <a asp-area="" asp-controller="Saloes" asp-action="Detalhes" asp-route-id="@salao.Id">@salao.Nome</a>
                     </div>
-                    <div class="doctor_title"><strong>@salon.CategoryName</strong></div>
-                    <div class="doctor_title">@salon.CityName, @salon.Address</div>
+                    <div class="doctor_title"><strong>@salao.NomeCategoria</strong></div>
+                    <div class="doctor_title">@salao.NomeCidade, @salao.Endereco</div>
                     <div class="doctor_title ml-2">
                         <div class="button button_1 elements_button mt-2">
-                            <a asp-area="" asp-controller="Saloes" asp-action="Details" asp-route-id="@salon.Id">
+                            <a asp-area="" asp-controller="Saloes" asp-action="Detalhes" asp-route-id="@salao.Id">
                                 <span>Veja os serviços</span>
                                 <span>Veja os serviços</span>
                             </a>
                         </div>
                     </div>
                     <div class="doctor_link">
-                        <a asp-area="" asp-controller="Saloes" asp-action="Details" asp-route-id="@salon.Id">+</a>
+                        <a asp-area="" asp-controller="Saloes" asp-action="Detalhes" asp-route-id="@salao.Id">+</a>
                     </div>
                 </div>
             </div>
@@ -45,15 +45,15 @@
 </div>
 
 @{
-    var prevDisabled = !Model.Salons.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.Salons.HasNextPage ? "disabled" : "";
+    var prevDisabled = !Model.Saloes.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Saloes.HasNextPage ? "disabled" : "";
 }
 
 <div class="row ml-5">
     <div class="m-5">
         <a asp-action="Index"
            asp-route-sortId="@ViewData["CurrentSort"]"
-           asp-route-pageNumber="@(Model.Salons.PageIndex - 1)"
+           asp-route-pageNumber="@(Model.Saloes.PageIndex - 1)"
            asp-route-currentFilter="@ViewData["CurrentFilter"]"
            style="color: #BA55D3" class="btn btn-outline-secondary btn-lg @prevDisabled">
             &#x2190; Pagina Anterior
@@ -62,7 +62,7 @@
     <div class="m-5">
         <a asp-action="Index"
            asp-route-sortId="@ViewData["CurrentSort"]"
-           asp-route-pageNumber="@(Model.Salons.PageIndex + 1)"
+           asp-route-pageNumber="@(Model.Saloes.PageIndex + 1)"
            asp-route-currentFilter="@ViewData["CurrentFilter"]"
            style="color: #BA55D3" class="btn btn-outline-secondary btn-lg @nextDisabled">
             Próxima Pagina &#x2192;

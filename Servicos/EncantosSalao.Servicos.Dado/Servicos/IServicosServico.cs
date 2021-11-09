@@ -7,7 +7,7 @@
     {
         Task<IEnumerable<T>> PegaTodosAsync<T>();
 
-        Task<IEnumerable<int>> PegaTodosidsPorCategoriaAsync(int idCategoria);
+        Task<IEnumerable<int>> PegaTodosIdsPorCategoriaAsync(int idCategoria);
 
         Task<int> AdicionaAsync(string nome, int idCategoria, string descricao);
 

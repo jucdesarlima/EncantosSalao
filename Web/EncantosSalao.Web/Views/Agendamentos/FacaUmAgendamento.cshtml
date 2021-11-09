@@ -104,7 +104,7 @@
 
         <div class="col-lg-6">
             <div>
-                @await Component.InvokeAsync("SalonServiceDetails", new { Model.IdSalao, Model.IdServico })
+                @await Component.InvokeAsync("ServicoSalaoDetalhes", new { Model.IdSalao, Model.IdServico })
             </div>
             <form method="post" enctype="multipart/form-data">
                 <input asp-for="@Model.IdSalao" value="@Model.IdSalao" class="form-control" hidden>

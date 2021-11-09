@@ -70,7 +70,7 @@
             var idSalao = await this.servicoSaloes.AdicionaAsync(input.Nome, input.IdCategoria, input.IdCidade, input.Endereco, urlImagem);
 
             // Adicione ao salão todos os serviços de sua categoria
-            var idsServicos = await this.servicoServicos.PegaTodosidsPorCategoriaAsync(input.IdCategoria);
+            var idsServicos = await this.servicoServicos.PegaTodosIdsPorCategoriaAsync(input.IdCategoria);
             await this.servicoSaloeServicos.AdicionaAsync(idSalao, idsServicos);
 
             return this.RedirectToAction("Index");

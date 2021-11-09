@@ -3,7 +3,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using EncantosSalao.Comum;
-    using EncantosSalao.Web.ViewModels.Common.CustomValidationAttributes;
+    using EncantosSalao.Web.VisaoModelos.Comum.AtributosValidacaoCustomizados;
 
     public class AgendamentoEntradaModelo
     {
@@ -14,11 +14,11 @@
         public int IdServico { get; set; }
 
         [Required]
-        [AtributoValidaDataTexto(ErrorMessage = ConstantesGlobais.MensagensErro.DataHora)]
+        [ValidateDateString(ErrorMessage = ConstantesGlobais.MensagensErro.DataHora)]
         public string Data { get; set; }
 
         [Required]
-        [AtributoValidacaoHoraTexto(ErrorMessage = ConstantesGlobais.MensagensErro.DataHora)]
+        [ValidateTimeString(ErrorMessage = ConstantesGlobais.MensagensErro.DataHora)]
         public string Hora { get; set; }
     }
 }

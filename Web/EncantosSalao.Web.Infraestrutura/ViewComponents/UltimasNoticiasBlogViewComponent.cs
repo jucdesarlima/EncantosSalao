@@ -6,11 +6,11 @@
     using EncantosSalao.Web.VisaoModelos.NoticiasBlog;
     using Microsoft.AspNetCore.Mvc;
 
-    public class LatestBlogPostsViewComponent : ViewComponent
+    public class UltimasNoticiasBlogViewComponent : ViewComponent
     {
         private readonly INoticiasBlogServico servicoNoticiasBlog;
 
-        public LatestBlogPostsViewComponent(INoticiasBlogServico servicoNoticiasBloge)
+        public UltimasNoticiasBlogViewComponent(INoticiasBlogServico servicoNoticiasBlog)
         {
             this.servicoNoticiasBlog = servicoNoticiasBlog;
         }

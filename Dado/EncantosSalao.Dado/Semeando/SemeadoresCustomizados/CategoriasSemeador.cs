@@ -20,9 +20,27 @@
                 {
                     new Categoria // Id = 1
                     {
-                        Nome = "Salões de Cabeleireiro",
-                        Descricao = "Salões de Cabeleireiro vêm em uma variedade de formas e tamanhos. Se você prefere fazer alarde em compromissos de cabelo regulares ou gosta de cortar e mudar de acordo com sua localização e seu orçamento, uma coisa é certa - todos nós precisamos de um bom corte de vez em quando e um salão de cabeleireiro é o lugar para fazê-lo.",
+                        Nome = "Cabeleireiro",
+                        Descricao = "Corte seu cabelo conosco",
                         UrlImagem = ConstantesGlobais.Imagens.Cabelo,
+                    },
+                    new Categoria // Id = 1
+                    {
+                        Nome = "Spa",
+                        Descricao = "Tratamento para pele",
+                        UrlImagem = ConstantesGlobais.Imagens.Rosto,
+                    },
+                    new Categoria // Id = 1
+                    {
+                        Nome = "Maquiador",
+                        Descricao = "Fazemos sua maquiagem",
+                        UrlImagem = ConstantesGlobais.Imagens.Maquiador,
+                    },
+                    new Categoria // Id = 1
+                    {
+                        Nome = "Coloração",
+                        Descricao = "As melhores técnicas de coloração",
+                        UrlImagem = ConstantesGlobais.Imagens.Coloracao,
                     },
                 };
 

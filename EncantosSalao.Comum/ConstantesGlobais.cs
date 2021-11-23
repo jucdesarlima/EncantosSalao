@@ -76,39 +76,45 @@
 
         public static class Imagens
         {
-            public const string Indice = "https://localhost:44319/imagem/indice.jpg";
+            public const string Indice = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/indice.jpg";
 
-            public const string ImagemFundo = "https://localhost:44319/imagem/imagemfundo.jpg";
+            public const string ImagemFundo = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/imagemfundo.jpg";
 
-            public const string Rodape = "https://localhost:44319/imagem/rodape.jpg";
+            public const string Rodape = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/rodape.jpg";
 
-            public const string Erro404 = "https://localhost:44319/imagem/erro404.jpg";
+            public const string Erro404 = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/erro404.jpg";
 
 
             // NoticiasBlog
-            public const string CabeloSaudavelVerao = "https://localhost:44319/imagem/cabelosaudavelverao.jpg";
+            public const string CabeloSaudavelVerao = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/cabelosaudavelverao.jpg";
 
-            public const string Maquiagem = "https://localhost:44319/imagem/maquiagem.jpg";
+            public const string Maquiagem = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/maquiagem.jpg";
 
-            public const string DicasBelezaVerao = "https://localhost:44319/imagem/dicasbelezaverao.jpg";
+            public const string DicasBelezaVerao = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/dicasbelezaverao.jpg";
 
-            public const string PeleEstressada = "https://localhost:44319/imagem/peleestressada.jpg";
+            public const string PeleEstressada = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/peleestressada.jpg";
 
             // Categorias
-            public const string Cabelo = "https://localhost:44319/imagem/cabelo.jpg";
+            public const string Cabelo = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/cabelo.jpg";
 
-            public const string Depilacao = "https://localhost:44319/imagem/depilacao.jpg";
+            public const string Depilacao = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/depilacao.jpg";
 
-            public const string Massagem = "https://localhost:44319/imagem/massagem.jpg";
+            public const string Massagem = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/massagem.jpg";
 
-            public const string Unhas = "https://localhost:44319/imagem/unhas.jpg";
+            public const string Unhas = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/unhas.jpg";
 
-            public const string Rosto = "https://localhost:44319/imagem/rosto.jpg";
+            public const string Rosto = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/rosto.jpg";
 
-            public const string Corpo = "https://localhost:44319/imagem/corpo.png";
+            public const string Corpo = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/corpo.png";
+            
+            public const string Maquiador = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/maquiador.png";
+
+            public const string Coloracao = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/coloracao.png";
+
+
 
             // Saloes
-            public const string EncantosSalao = "https://localhost:44319/imagem/encantossalao.jpg";
+            public const string EncantosSalao = "https://encantossalaoweb20211112204048.azurewebsites.net/imagem/encantossalao.jpg";
 
         }
 

@@ -48,9 +48,9 @@ Uma aplicação Web para agendamento de corte de cabelo, unhas, e etc. :calendar
 
 ### 1. Dados de amostra
 Você pode testar o website usuando as contas pré configuradas abaixo:
-  - Usuário: user@user.com / senha: 123456
-  - Gerente de Salão: manager@manager.com / senha: 123456
-  - Administrador: admin@admin.com / senha: 123456
+  - Usuário: usuario@encantossalao.com / senha: 123456
+  - Gerente de Salão: gerente@encantossalao.com / senha: 123456
+  - Administrador: admin@encantossalao.com / senha: 123456
  
 
 ## Licença
